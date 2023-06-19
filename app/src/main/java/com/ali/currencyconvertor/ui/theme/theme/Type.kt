@@ -1,4 +1,4 @@
-package com.ali.currencyconvertor.ui.theme
+package com.ali.sadapayclone.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

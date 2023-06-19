@@ -19,7 +19,6 @@ android {
             useSupportLibrary true
         }
     }
-
     buildTypes {
         release {
             minifyEnabled false
@@ -37,15 +36,22 @@ android {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion '1.2.0'
+        kotlinCompilerExtensionVersion = "1.4.0"
     }
     packagingOptions {
         resources {
-            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+            exclude('/META-INF/LICENSE.md')
+            exclude('/META-INF/LICENSE-notice.md')
         }
     }
-}
 
+    testOptions {
+        unitTests.all {
+            useJUnitPlatform()
+        }
+    }
+
+}
 dependencies {
 
     implementation 'androidx.core:core-ktx:1.10.1'
@@ -60,8 +66,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
     testImplementation 'org.junit.jupiter:junit-jupiter'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.21"
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:$compose_version")
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.21"
 
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
